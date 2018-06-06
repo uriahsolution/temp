@@ -1,6 +1,7 @@
 package com.uriah.mmvm.busytoeasy.data.remote;
 
 import android.arch.lifecycle.LiveData;
+import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,9 +11,11 @@ import com.uriah.mmvm.busytoeasy.data.remote.local.dao.ItemDao;
 import com.uriah.mmvm.busytoeasy.data.remote.local.entity.AlertResponse;
 import com.uriah.mmvm.busytoeasy.data.remote.local.entity.Item;
 
+import java.security.PrivateKey;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
 import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
@@ -34,6 +37,7 @@ public class ItemRepository {
     private final ApiInterface webservice;
     private final ItemDao itemDao;
     private final Executor executor;
+    private Context myApplication;
 
     @Inject
     public ItemRepository(ApiInterface webservice, ItemDao itemDao, Executor executor) {
@@ -53,26 +57,25 @@ public class ItemRepository {
 
     private void refreshItem() {
         executor.execute(() -> {
-            // Check if user was fetched recently
-            boolean userExists = (itemDao.hasUser(getMaxRefreshTime(new Date())) != null);
-            // If user have to be updated
-            if (!userExists) {
-                webservice.getAlerts().enqueue(new Callback<List<AlertResponse>>() {
-                    @Override
-                    public void onResponse(Call<List<AlertResponse>> call, Response<List<AlertResponse>> response) {
+                    // Check if user was fetched recently
+                    boolean userExists = (itemDao.hasUser(getMaxRefreshTime(new Date())) != null);
+                    // If user have to be updated
+                    if (!userExists) {
+                        webservice.getAlerts().enqueue(new Callback<AlertResponse>() {
+                            @Override
+                            public void onResponse(Call<AlertResponse> call, Response<AlertResponse> response) {
+                                AlertResponse alertResponse = response.body();
 
+                                Log.d("Retrofit", alertResponse.getMessage());
+                            }
 
-                    }
+                            @Override
+                            public void onFailure(Call<AlertResponse> call, Throwable t) {
 
-                    @Override
-                    public void onFailure(Call<List<AlertResponse>> call, Throwable t) {
-
-
-
+                            }
+                        });
                     }
                 });
-            }
-        });
     }
 
     // ---

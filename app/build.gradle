@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:27.1.1'
+
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -83,6 +83,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    //Logging interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
     //Gson
     implementation 'com.google.code.gson:gson:2.8.2'
     //Retrofit  pro guard rules https://github.com/square/okio#proguard

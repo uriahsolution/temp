@@ -11,12 +11,10 @@ import javax.inject.Inject;
 
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
-import dagger.android.support.HasSupportFragmentInjector;
 
 
-/**
- * Created by Philippe on 02/03/2018.
- */
+
+
 
 public class App extends Application implements HasActivityInjector {
 
