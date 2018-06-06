@@ -4,7 +4,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '26.0.3'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.uriah.mmvm.busytoeasy"
         minSdkVersion 16
@@ -45,9 +45,9 @@ dependencies {
     /*
         https://github.com/hdodenhof/CircleImageView
          */
-    compile "de.hdodenhof:circleimageview:$rootProject.circleImageViewVersion"
+    compile "de.hdodenhof:circleimageview:2.2.0"
     //D2
-    compile "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    compile "com.google.dagger:dagger-android-support:2.15"
     compile "com.google.dagger:dagger:$rootProject.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
     //instead of check Project level build.gradle for version values
@@ -62,6 +62,26 @@ dependencies {
     compile "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.github.JakeWharton:ViewPagerIndicator:$rootProject.viewPagerIndicatorVersion"
-    testCompile 'org.mockito:mockito-core:2.8.9'
+    testCompile 'org.mockito:mockito-core:2.10.0'
     testCompile 'junit:junit:4.12'
+
+    //Butter knife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.8.1"
+
+    //Stetho
+    compile 'com.facebook.stetho:stetho:1.5.0'
+
+    //Retrofit and convert factory
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.2'
+    //Retrofit  pro guard rules https://github.com/square/okio#proguard
+
+    //RX
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }
