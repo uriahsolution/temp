@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 
 @Entity
 public class Item {
@@ -31,16 +33,26 @@ public class Item {
     @Expose
     private String dateAdded;
 
+    private Date lastRefresh;
+
+    public Date getLastRefresh() {
+        return lastRefresh;
+    }
+
+    public void setLastRefresh(Date lastRefresh) {
+        this.lastRefresh = lastRefresh;
+    }
+
     public Item(){}
 
-    public Item(@NonNull String id, String title, String fileLinks, String fileUrl, String dateAdded) {
+    public Item(@NonNull String id, String title, String fileLinks, String fileUrl, String dateAdded, Date lastRefresh) {
         this.id = id;
         this.title = title;
         this.fileLinks = fileLinks;
         this.fileUrl = fileUrl;
         this.dateAdded = dateAdded;
+        this.lastRefresh = lastRefresh;
     }
-
 
     @NonNull
     public String getId() {

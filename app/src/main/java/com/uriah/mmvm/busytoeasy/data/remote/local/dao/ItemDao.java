@@ -8,6 +8,7 @@ import android.arch.persistence.room.Query;
 import com.uriah.mmvm.busytoeasy.data.remote.local.entity.Item;
 
 
+import java.util.Date;
 
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
@@ -19,6 +20,9 @@ public interface ItemDao {
 
     @Query("SELECT * FROM item ")
     LiveData<Item> load();
+
+    @Query("SELECT * FROM Item WHERE lastRefresh > :lastRefreshMax LIMIT 1")
+    Item hasUser(Date lastRefreshMax);
 
 
 }
