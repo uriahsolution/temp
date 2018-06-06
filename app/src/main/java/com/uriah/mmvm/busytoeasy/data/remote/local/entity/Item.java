@@ -15,11 +15,12 @@ public class Item {
 
 
 
-    @PrimaryKey
-    @NonNull
+   /* @PrimaryKey
     @SerializedName("id")
     @Expose
-    private String id;
+    private String id;*/
+    @NonNull
+    @PrimaryKey
     @SerializedName("title")
     @Expose
     private String title;
@@ -46,7 +47,7 @@ public class Item {
     public Item(){}
 
     public Item(@NonNull String id, String title, String fileLinks, String fileUrl, String dateAdded, Date lastRefresh) {
-        this.id = id;
+       // this.id = id;
         this.title = title;
         this.fileLinks = fileLinks;
         this.fileUrl = fileUrl;
@@ -54,14 +55,14 @@ public class Item {
         this.lastRefresh = lastRefresh;
     }
 
-    @NonNull
+    /*@NonNull
     public String getId() {
         return id;
     }
 
     public void setId(@NonNull String id) {
         this.id = id;
-    }
+    }*/
 
 
     public String getTitle() {

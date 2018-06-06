@@ -66,6 +66,12 @@ public class ItemRepository {
                             public void onResponse(Call<AlertResponse> call, Response<AlertResponse> response) {
                                 AlertResponse alertResponse = response.body();
 
+                                executor.execute(() -> {
+                                    Item item = alertResponse.getItems().get(0);
+                                    item.setLastRefresh(new Date());
+                                    itemDao.save(item);
+                                });
+
                                 Log.d("Retrofit", alertResponse.getMessage());
                             }
 
