@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 
 
+import com.facebook.accountkit.AccountKit;
 import com.uriah.mmvm.busytoeasy.di.component.DaggerAppComponent;
 
 import javax.inject.Inject;
@@ -28,6 +29,8 @@ public class App extends Application implements HasActivityInjector {
         super.onCreate();
         this.initDagger();
         context = getApplicationContext();
+
+
     }
 
     @Override

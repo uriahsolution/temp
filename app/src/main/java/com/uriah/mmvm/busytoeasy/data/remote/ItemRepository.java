@@ -37,7 +37,7 @@ public class ItemRepository {
     private final ApiInterface webservice;
     private final ItemDao itemDao;
     private final Executor executor;
-    private Context myApplication;
+
 
     @Inject
     public ItemRepository(ApiInterface webservice, ItemDao itemDao, Executor executor) {

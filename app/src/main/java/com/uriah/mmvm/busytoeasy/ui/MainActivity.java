@@ -1,14 +1,22 @@
 package com.uriah.mmvm.busytoeasy.ui;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 
 import com.uriah.mmvm.busytoeasy.R;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.inject.Inject;
 
@@ -20,6 +28,7 @@ import dagger.android.support.HasSupportFragmentInjector;
 public class MainActivity extends AppCompatActivity implements HasSupportFragmentInjector {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+    private static final String TAG ="MainActivity" ;
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
     private Bundle savedInstanceState;
@@ -32,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
         configureDagger();
         showFragment(savedInstanceState);
 
+        printHashKey(this);
+
        /* this.checkInternetPermission();
 
         this.savedInstanceState=savedInstanceState;
@@ -39,6 +50,24 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
 
     }
+
+
+    public  void printHashKey(Context pContext) {
+            try {
+                PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+                for (Signature signature : info.signatures) {
+                    MessageDigest md = MessageDigest.getInstance("SHA");
+                    md.update(signature.toByteArray());
+                    String hashKey = new String(Base64.encode(md.digest(), 0));
+                    Log.i(TAG, "printHashKey() Hash Key: " + hashKey);
+                }
+            } catch (NoSuchAlgorithmException e) {
+                Log.e(TAG, "printHashKey()", e);
+            } catch (Exception e) {
+                Log.e(TAG, "printHashKey()", e);
+            }
+        }
+
 
     private void checkInternetPermission() {
         if (ContextCompat.checkSelfPermission(this,
