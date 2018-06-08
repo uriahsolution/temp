@@ -1,4 +1,4 @@
-package com.uriah.mmvm.busytoeasy.data.remote.local.convertor;
+package com.uriah.mmvm.busytoeasy.data.local.convertor;
 
 import android.arch.persistence.room.TypeConverter;
 

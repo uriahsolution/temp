@@ -1,4 +1,4 @@
-package com.uriah.mmvm.busytoeasy.data.remote.local.entity;
+package com.uriah.mmvm.busytoeasy.data.local.entity;
 
 
 import java.util.List;

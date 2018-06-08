@@ -1,11 +1,11 @@
-package com.uriah.mmvm.busytoeasy.data.remote.local.dao;
+package com.uriah.mmvm.busytoeasy.data.local.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.uriah.mmvm.busytoeasy.data.remote.local.entity.Item;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
 
 
 import java.util.Date;

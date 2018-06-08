@@ -1,4 +1,4 @@
-package com.uriah.mmvm.busytoeasy.data.remote;
+package com.uriah.mmvm.busytoeasy.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;

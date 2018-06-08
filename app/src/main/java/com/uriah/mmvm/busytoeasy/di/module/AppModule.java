@@ -7,9 +7,9 @@ import android.arch.persistence.room.Room;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.uriah.mmvm.busytoeasy.data.remote.ApiInterface;
-import com.uriah.mmvm.busytoeasy.data.remote.ItemRepository;
-import com.uriah.mmvm.busytoeasy.data.remote.local.MyDatabase;
-import com.uriah.mmvm.busytoeasy.data.remote.local.dao.ItemDao;
+import com.uriah.mmvm.busytoeasy.data.ItemRepository;
+import com.uriah.mmvm.busytoeasy.data.local.MyDatabase;
+import com.uriah.mmvm.busytoeasy.data.local.dao.ItemDao;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

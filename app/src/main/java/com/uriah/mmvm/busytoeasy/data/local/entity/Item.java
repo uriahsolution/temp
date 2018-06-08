@@ -1,4 +1,4 @@
-package com.uriah.mmvm.busytoeasy.data.remote.local.entity;
+package com.uriah.mmvm.busytoeasy.data.local.entity;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

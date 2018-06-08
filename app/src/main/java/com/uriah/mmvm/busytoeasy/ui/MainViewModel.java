@@ -3,8 +3,8 @@ package com.uriah.mmvm.busytoeasy.ui;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.uriah.mmvm.busytoeasy.data.remote.ItemRepository;
-import com.uriah.mmvm.busytoeasy.data.remote.local.entity.Item;
+import com.uriah.mmvm.busytoeasy.data.ItemRepository;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
 
 import javax.inject.Inject;
 

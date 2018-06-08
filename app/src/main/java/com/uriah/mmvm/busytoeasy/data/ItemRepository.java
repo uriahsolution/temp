@@ -1,21 +1,16 @@
-package com.uriah.mmvm.busytoeasy.data.remote;
+package com.uriah.mmvm.busytoeasy.data;
 
 import android.arch.lifecycle.LiveData;
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 
+import com.uriah.mmvm.busytoeasy.data.local.dao.ItemDao;
+import com.uriah.mmvm.busytoeasy.data.local.entity.AlertResponse;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
 import com.uriah.mmvm.busytoeasy.data.remote.ApiInterface;
-import com.uriah.mmvm.busytoeasy.data.remote.local.dao.ItemDao;
-import com.uriah.mmvm.busytoeasy.data.remote.local.entity.AlertResponse;
-import com.uriah.mmvm.busytoeasy.data.remote.local.entity.Item;
 
-import java.security.PrivateKey;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Timer;
 import java.util.concurrent.Executor;
 
 import javax.inject.Inject;

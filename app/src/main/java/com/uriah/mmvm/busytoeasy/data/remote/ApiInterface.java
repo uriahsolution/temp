@@ -1,9 +1,7 @@
 package com.uriah.mmvm.busytoeasy.data.remote;
 
 
-import com.uriah.mmvm.busytoeasy.data.remote.local.entity.AlertResponse;
-
-import java.util.List;
+import com.uriah.mmvm.busytoeasy.data.local.entity.AlertResponse;
 
 import retrofit2.Call;
 import retrofit2.http.POST;
