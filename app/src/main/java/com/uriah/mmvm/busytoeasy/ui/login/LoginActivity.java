@@ -1,8 +1,13 @@
 package com.uriah.mmvm.busytoeasy.ui.login;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +31,9 @@ import com.facebook.accountkit.ui.SkinManager;
 import com.facebook.accountkit.ui.UIManager;
 import com.uriah.mmvm.busytoeasy.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     @BindView(R.id.logout)
     Button logout;
+
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
 
 
     private static final String TAG ="Login Activity" ;
@@ -44,7 +54,48 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        checkAndRequestPermissions();
+
+
+
         }
+
+
+
+    private  boolean checkAndRequestPermissions() {
+        int camera = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS);
+        int storage = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET);
+        int loc = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+        int loc3 = ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS);
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        if (camera != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.READ_SMS);
+        }
+        if (storage != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.INTERNET);
+        }
+        if (loc != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if (loc3 != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.RECEIVE_SMS);
+        }
+        if (!listPermissionsNeeded.isEmpty())
+        {
+            ActivityCompat.requestPermissions(this,listPermissionsNeeded.toArray
+                    (new String[listPermissionsNeeded.size()]),REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+
+    }
 
     //on activity
 
@@ -100,7 +151,12 @@ public class LoginActivity extends AppCompatActivity {
                     new AccountKitConfiguration.AccountKitConfigurationBuilder(
                             LoginType.PHONE,
 
-                            AccountKitActivity.ResponseType.CODE).setDefaultCountryCode("IN"); // or .ResponseType.TOKEN
+                            AccountKitActivity.ResponseType.CODE).setDefaultCountryCode("IN").setReceiveSMS(true).setReadPhoneStateEnabled(true);
+
+            //Auto retrieve sms
+                    configurationBuilder.setReadPhoneStateEnabled(true);
+                    configurationBuilder.setReceiveSMS(true);
+            // or .ResponseType.TOKEN
             // ... perform additional configuration ...
             intent.putExtra(
                     AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,

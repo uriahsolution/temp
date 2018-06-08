@@ -4,6 +4,9 @@
     package="com.uriah.mmvm.busytoeasy">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
 
     <!--
@@ -13,6 +16,8 @@
     Alias: AndroidDebugKey
     MD5: BB:99:9D:FC:C3:64:67:93:1F:4E:92:F5:37:E6:CF:9C
     SHA1: C3:6A:31:A3:30:77:CB:97:4C:E1:C8:FF:46:AD:3E:A7:01:7C:FB:A4
+
+    token=ce2425aac68c2816013bdc9c3df62437
     hash key=w2oxozB3y5dM4cj/Rq0+pwF8+6Q=
     Valid until: Friday, 6 March, 2048
     -->
