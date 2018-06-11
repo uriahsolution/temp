@@ -17,7 +17,6 @@ public interface AppComponent {
     @ApplicationContext
     Context context();
 
-
     Application application();
     DataManager apiManager();
 }

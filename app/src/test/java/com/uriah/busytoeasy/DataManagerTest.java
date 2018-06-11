@@ -6,18 +6,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
-
 import com.uriah.busytoeasy.common.TestDataFactory;
 import com.uriah.busytoeasy.data.DataManager;
 import com.uriah.busytoeasy.data.model.response.NamedResource;
 import com.uriah.busytoeasy.data.model.response.Pokemon;
 import com.uriah.busytoeasy.data.model.response.PokemonListResponse;
-import com.uriah.busytoeasy.data.remote.PokemonService;
+import com.uriah.busytoeasy.data.remote.ApiService;
 import com.uriah.busytoeasy.util.RxSchedulersOverrideRule;
 import io.reactivex.Single;
-
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -32,13 +29,13 @@ public class DataManagerTest {
     public final RxSchedulersOverrideRule overrideSchedulersRule = new RxSchedulersOverrideRule();
 
     @Mock
-    private PokemonService mockPokemonService;
+    private ApiService mockApiService;
 
     private DataManager dataManager;
 
     @Before
     public void setUp() {
-        dataManager = new DataManager(mockPokemonService);
+        dataManager = new DataManager(mockApiService);
     }
 
     @Test
@@ -47,7 +44,7 @@ public class DataManagerTest {
         PokemonListResponse pokemonListResponse = new PokemonListResponse();
         pokemonListResponse.results = namedResourceList;
 
-        when(mockPokemonService.getPokemonList(anyInt()))
+        when(mockApiService.getPokemonList(anyInt()))
                 .thenReturn(Single.just(pokemonListResponse));
 
         dataManager
@@ -61,7 +58,7 @@ public class DataManagerTest {
     public void getPokemonCompletesAndEmitsPokemon() {
         String name = "charmander";
         Pokemon pokemon = TestDataFactory.makePokemon(name);
-        when(mockPokemonService.getPokemon(anyString())).thenReturn(Single.just(pokemon));
+        when(mockApiService.getPokemon(anyString())).thenReturn(Single.just(pokemon));
 
         dataManager.getPokemon(name).test().assertComplete().assertValue(pokemon);
     }
