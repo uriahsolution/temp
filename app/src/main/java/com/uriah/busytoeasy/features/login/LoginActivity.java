@@ -13,6 +13,7 @@ import butterknife.BindView;
 import timber.log.Timber;
 
 public class LoginActivity extends BaseActivity implements  LoginMvpView,ErrorView.ErrorListener {
+
     @Inject
     LoginPresenter loginPresenter;
 
@@ -59,7 +60,6 @@ public class LoginActivity extends BaseActivity implements  LoginMvpView,ErrorVi
     public void showProgress(boolean show) {
 
         progressBar.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -67,6 +67,11 @@ public class LoginActivity extends BaseActivity implements  LoginMvpView,ErrorVi
 
         errorView.setVisibility(View.VISIBLE);
         Timber.e(error, "There was an error retrieving the login");
+
+    }
+
+    public void checkMobile(String mobileNumber){
+
 
     }
 
