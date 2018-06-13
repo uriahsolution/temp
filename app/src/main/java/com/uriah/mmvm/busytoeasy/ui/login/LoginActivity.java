@@ -53,10 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         checkAndRequestPermissions();
 
-
-
         }
-
 
 
     private  boolean checkAndRequestPermissions() {
@@ -90,101 +87,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Toast.makeText(this, "Permission granted!", Toast.LENGTH_SHORT).show();
 
-
-    }
-
-    //on activity
-
-    private void getCurrentAccount(){
-        AccessToken accessToken = AccountKit.getCurrentAccessToken();
-        if (accessToken != null) {
-            //Handle Returning User
-            AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
-
-                @Override
-                public void onSuccess(final Account account) {
-
-                    // Get Account Kit ID
-                    String accountKitId = account.getId();
-                    Log.e("Account Kit Id", accountKitId);
-
-                    if(account.getPhoneNumber()!=null) {
-                        Log.e("CountryCode", "" + account.getPhoneNumber().getCountryCode());
-                        Log.e("PhoneNumber", "" + account.getPhoneNumber().getPhoneNumber());
-
-                        // Get phone number
-                        PhoneNumber phoneNumber = account.getPhoneNumber();
-                        String phoneNumberString = phoneNumber.toString();
-                        logout.setVisibility(View.VISIBLE);
-                        login.setVisibility(View.GONE);
-                        Log.e("NumberString", phoneNumberString);
-
-
-                    }
-
-                    if(account.getEmail()!=null)
-                        Log.e("Email",account.getEmail());
-                }
-
-                @Override
-                public void onError(final AccountKitError error) {
-                    // Handle Error
-                    Log.e(TAG,error.toString());
-                }
-            });
-
-        } else {
-            //Handle new or logged out user
-            Log.e(TAG,"Logged Out");
-            Toast.makeText(this,"Logged Out User",Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void phoneLogin(@Nullable View view) {
-
-            final Intent intent = new Intent(this, AccountKitActivity.class);
-            AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder =
-                    new AccountKitConfiguration.AccountKitConfigurationBuilder(
-                            LoginType.PHONE,
-
-                            AccountKitActivity.ResponseType.CODE).setDefaultCountryCode("IN").setReceiveSMS(true).setReadPhoneStateEnabled(true);
-
-            //Auto retrieve sms
-                    configurationBuilder.setReadPhoneStateEnabled(true);
-                    configurationBuilder.setReceiveSMS(true);
-            // or .ResponseType.TOKEN
-            // ... perform additional configuration ...
-            intent.putExtra(
-                    AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,
-                    configurationBuilder.build());
-            startActivityForResult(intent, APP_REQUEST_CODE);
-
-    }
-
-    @Override
-    protected void onActivityResult(final int requestCode,final int resultCode,final Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == APP_REQUEST_CODE && resultCode == RESULT_OK) {
-            getCurrentAccount();
-        }
-    }
-
-    public void logout(@Nullable View view){
-        AccountKit.logOut();
-        AccessToken accessToken = AccountKit.getCurrentAccessToken();
-        if(accessToken!=null)
-            Log.e(TAG,"Still Logged in...");
-
-        else
-            logout.setVisibility(View.GONE);
-        login.setVisibility(View.VISIBLE);
-    }
-
-
-
-
-
-
 
 }

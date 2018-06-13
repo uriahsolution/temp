@@ -28,9 +28,7 @@ public class MainFragment extends Fragment {
     TextView textView;
 
 
-    public static MainFragment newInstance() {
-        return new MainFragment();
-    }
+    public static MainFragment newInstance() {return new MainFragment();}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -62,17 +60,15 @@ public class MainFragment extends Fragment {
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel.class);
         viewModel.init();
-        viewModel.getUser().observe(this, user -> updateUI(user));
-    }
+        viewModel.getUser().observe(this, user -> updateUI(user));}
 
     // -----------------
     // UPDATE UI
     // -----------------
 
     private void updateUI(@Nullable Item item){
-        if (item != null){
-            this.textView.setText(item.getTitle());
-        }
+        if (item != null){this.textView.setText(item.getTitle());}
     }
+
 
 }

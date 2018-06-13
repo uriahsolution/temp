@@ -1,5 +1,8 @@
 package com.uriah.mmvm.busytoeasy.ui.login;
 
+
+
+
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,8 +11,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.uriah.mmvm.busytoeasy.R;
+
+import butterknife.ButterKnife;
+
 
 public class LoginFragment extends Fragment {
 
@@ -22,7 +27,13 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.login_fragment, container, false);
+
+        View view = inflater.inflate(R.layout.login_fragment, container, false);
+        ButterKnife.bind(this,view);
+
+
+        return view;
+
     }
 
     @Override

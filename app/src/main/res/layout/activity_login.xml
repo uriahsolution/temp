@@ -10,25 +10,29 @@
     tools:context=".ui.login.LoginActivity">
 
 
-    <Button
-        android:layout_width="200dp"
+    <ImageView
+
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/com_accountkit_code_fb"/>
+
+
+
+    <EditText
+        android:id="@+id/edt_mobile_login"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:id="@+id/login"
-        android:text="Phone Login"
+        android:text="Login / Sign up"
         android:textColor="#fff"
         android:background="#0099ff"
         android:textAllCaps="false"
-        android:onClick="phoneLogin"/>
+        />
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/logout"
-        android:text="Logout"
-        android:textColor="#fff"
-        android:background="#ff9900"
-        android:textAllCaps="false"
-        android:onClick="logout"
-        android:visibility="gone"/>
 
 </LinearLayout>
