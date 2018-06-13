@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.uriah.mmvm.busytoeasy.di.key.ViewModelKey;
 import com.uriah.mmvm.busytoeasy.ui.MainViewModel;
+import com.uriah.mmvm.busytoeasy.ui.login.LoginViewModel;
 import com.uriah.mmvm.busytoeasy.viewmodel.FactoryViewModel;
 
 import dagger.Binds;
@@ -23,6 +24,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel.class)
     abstract ViewModel bindMainViewModel(MainViewModel repoViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LoginViewModel.class)
+    abstract ViewModel bindLoginViewModel(LoginViewModel loginViewModel);
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(FactoryViewModel factory);
