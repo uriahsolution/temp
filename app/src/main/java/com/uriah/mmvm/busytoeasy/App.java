@@ -6,15 +6,14 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-
-import com.facebook.accountkit.AccountKit;
 import com.uriah.mmvm.busytoeasy.di.component.DaggerAppComponent;
 
 import javax.inject.Inject;
-
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import timber.log.Timber;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class App extends Application implements HasActivityInjector {
@@ -37,9 +36,19 @@ public class App extends Application implements HasActivityInjector {
             Timber.plant(new CrashReportingTree());
         }
 
+        //Fonts
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Dosis-Bold.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
 
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(base));
+        }
 
     @Override
     public DispatchingAndroidInjector<Activity> activityInjector() {

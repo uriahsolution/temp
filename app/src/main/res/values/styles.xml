@@ -17,6 +17,13 @@
 
     </style>
 
+    <style name="Fullscreen"  parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
+
 
 
 </resources>

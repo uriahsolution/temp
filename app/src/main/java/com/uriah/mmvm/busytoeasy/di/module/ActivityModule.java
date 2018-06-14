@@ -1,7 +1,7 @@
 package com.uriah.mmvm.busytoeasy.di.module;
 
 
-import com.uriah.mmvm.busytoeasy.ui.MainActivity;
+import com.uriah.mmvm.busytoeasy.ui.demo.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

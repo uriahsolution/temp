@@ -49,6 +49,7 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -107,4 +108,17 @@ dependencies {
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.0'
+
+    //fonts
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    //Slider
+
+    implementation 'com.squareup.picasso:picasso:2.3.2'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+
+    //loading
+    //Progress
+    compile 'com.eyalbira.loadingdots:loading-dots:1.0.2'
 }

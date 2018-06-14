@@ -2,38 +2,15 @@ package com.uriah.mmvm.busytoeasy.ui.login;
 
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.facebook.accountkit.Account;
-import com.facebook.accountkit.AccountKitCallback;
-import com.facebook.accountkit.AccountKitError;
-import com.facebook.accountkit.AccountKitLoginResult;
-
-import com.facebook.accountkit.AccessToken;
-import com.facebook.accountkit.AccountKit;
-import com.facebook.accountkit.AccountKitLoginResult;
-import com.facebook.accountkit.PhoneNumber;
-import com.facebook.accountkit.ui.AccountKitActivity;
-import com.facebook.accountkit.ui.AccountKitConfiguration;
-import com.facebook.accountkit.ui.LoginType;
 import com.uriah.mmvm.busytoeasy.R;
-import com.uriah.mmvm.busytoeasy.ui.MainFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
 import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;

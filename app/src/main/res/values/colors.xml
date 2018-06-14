@@ -9,5 +9,23 @@
   <color name="primaryTextColor">#e3f2fd</color>
   <color name="secondaryTextColor">#000000</color>
 
+  <color name="colorPrimary">#152635</color>
+  <color name="colorPrimaryDark">#0f1528</color>
+  <color name="colorText">#212121</color>
+
+  <color name="colorAccent">#1b2e38</color>
+
+
   <color name="greyColor">#939393</color>
+
+  <!--pallet-->
+  <color name="colorWhite">#fafafa</color>
+  <color name="colorBlack">#000000</color>
+  <color name="colorDarkGrey">#292929</color>
+  <color name="colorLightGrey">#8e8e8e</color>
+  <color name="colorAmber">#FFC107</color>
+
+
+  <drawable name="button_focused">#3F51B5</drawable>
+  <drawable name="button_pressed">#FF4081</drawable>
 </resources>

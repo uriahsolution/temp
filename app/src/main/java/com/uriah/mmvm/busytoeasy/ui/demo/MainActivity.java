@@ -1,4 +1,4 @@
-package com.uriah.mmvm.busytoeasy.ui;
+package com.uriah.mmvm.busytoeasy.ui.demo;
 
 import android.Manifest;
 import android.content.Context;

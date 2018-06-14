@@ -1,4 +1,4 @@
-package com.uriah.mmvm.busytoeasy.ui;
+package com.uriah.mmvm.busytoeasy.ui.demo;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;

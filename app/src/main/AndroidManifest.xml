@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
-
     <!--
     Variant: debugAndroidTest
     Config: debug
@@ -21,8 +20,6 @@
     hash key=w2oxozB3y5dM4cj/Rq0+pwF8+6Q=
     Valid until: Friday, 6 March, 2048
     -->
-
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -32,7 +29,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.demo.MainActivity">
 
         </activity>
 
@@ -52,14 +49,27 @@
         <meta-data
             android:name="com.facebook.accountkit.ClientToken"
             android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".ui.login.LoginActivity">
+
+        </activity>
+        <activity android:name=".ui.login.SplashActivity"
+            android:theme="@style/Fullscreen">
+
+
+        </activity>
+
+        <activity android:name=".ui.home.HomeActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
-
 </manifest>

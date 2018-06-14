@@ -1,7 +1,7 @@
 package com.uriah.mmvm.busytoeasy.di.module;
 
 
-import com.uriah.mmvm.busytoeasy.ui.MainFragment;
+import com.uriah.mmvm.busytoeasy.ui.demo.MainFragment;
 import com.uriah.mmvm.busytoeasy.ui.login.LoginFragment;
 
 import dagger.Module;

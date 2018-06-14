@@ -14,7 +14,7 @@ public class LoginViewModel extends ViewModel {
     private LiveData<Item> itemLiveData;
     private ItemRepository itemRepository;
     protected CompositeDisposable compositeDisposable;
-    @Inject
+
     LoginFragment view;
 
 
