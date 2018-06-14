@@ -12,8 +12,19 @@ import android.widget.TextView;
 
 import com.uriah.mmvm.busytoeasy.R;
 
+import javax.inject.Inject;
 
-public class HomeActivity extends AppCompatActivity {
+import dagger.android.AndroidInjection;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
+
+public class HomeActivity extends AppCompatActivity implements HasSupportFragmentInjector {
+
+    private static final String TAG ="HomeActivity" ;
+    @Inject
+    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
 
     private TextView mTextMessage;
 
@@ -53,6 +64,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        configureDagger();
+
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -61,4 +74,11 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return dispatchingAndroidInjector;
+    }
+    private void configureDagger(){
+        AndroidInjection.inject(this);
+    }
 }
