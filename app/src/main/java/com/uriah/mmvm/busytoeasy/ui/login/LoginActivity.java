@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.uriah.mmvm.busytoeasy.R;
+import com.uriah.mmvm.busytoeasy.ui.login.bus.Events;
+import com.uriah.mmvm.busytoeasy.ui.login.bus.GlobalBus;
 
 import javax.inject.Inject;
 
@@ -19,7 +21,10 @@ import dagger.android.support.HasSupportFragmentInjector;
 public class LoginActivity extends AppCompatActivity implements HasSupportFragmentInjector {
 
 
-    private static final String TAG ="Login Activity" ;
+    private static final String NUMBER_FRAGMENT ="Mobile number enter fragment" ;
+    private static final String OTP_FRAGMENT ="Otp fragment" ;
+
+
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
@@ -34,9 +39,35 @@ public class LoginActivity extends AppCompatActivity implements HasSupportFragme
         configureDagger();
         showFragment(savedInstanceState);
 
-       // checkAndRequestPermissions();
+        GlobalBus.getBus().register(this);
+
+
+        // checkAndRequestPermissions();
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Register this fragment to listen to event.
+        GlobalBus.getBus().register(this);
+    }
+
+    public void sendMessageToFragment() {
+
+        Events.ActivityFragmentMessage activityFragmentMessageEvent =
+                new Events.ActivityFragmentMessage("From Activity");
+
+        GlobalBus.getBus().post(activityFragmentMessageEvent);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        GlobalBus.getBus().unregister(this);
+    }
+
+
 
 
     /*private  boolean checkAndRequestPermissions() {
@@ -78,6 +109,7 @@ public class LoginActivity extends AppCompatActivity implements HasSupportFragme
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return dispatchingAndroidInjector;
     }
+
     private void showFragment(Bundle savedInstanceState){
         if (savedInstanceState == null) {
 
@@ -88,8 +120,17 @@ public class LoginActivity extends AppCompatActivity implements HasSupportFragme
             fragment.setArguments(bundle);
 
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, fragment, null)
+                    .add(R.id.fragment_container, fragment, NUMBER_FRAGMENT)
                     .commit();
+
+
+            /*ContactListFragment contactListFragment =
+                    (ContactListFragment)getFragmentManager().findFragmentByTag("ContactList");
+            if(contactListFragment == null){
+                contactListFragment = new ContactListFragment();
+            }
+            ft.replace(R.id.fragment_container, contactListFragment,"ContactList";
+            ft.commit();*/
         }
     }
 
