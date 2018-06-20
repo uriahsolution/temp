@@ -46,6 +46,10 @@ public class HomeFragment extends Fragment {
     LinearLayout ll;
 
 
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
+        return fragment;
+    }
 
 
     @Override
@@ -61,6 +65,7 @@ public class HomeFragment extends Fragment {
         ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
             }
         });

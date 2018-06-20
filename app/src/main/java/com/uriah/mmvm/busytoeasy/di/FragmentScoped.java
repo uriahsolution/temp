@@ -16,7 +16,7 @@
  *
  */
 
-package com.uriah.mmvm.busytoeasy.util;
+package com.uriah.mmvm.busytoeasy.di;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

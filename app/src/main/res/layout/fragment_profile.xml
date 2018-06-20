@@ -5,21 +5,100 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.main.ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    >
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
-        app:title="Profile"
+        app:title="My Profile"
+        android:layout_gravity="right"
         app:titleTextColor="@color/colorWhite"
         android:layout_height="wrap_content">
+        <Button
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_gravity="right"
+            />
 
     </android.support.v7.widget.Toolbar>
-    <ImageView
+    <LinearLayout
+        android:id="@+id/ll_profile"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/prof"/>
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <!--//Register-->
+        <LinearLayout
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_weight="1.8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check"/>
+            <TextView
+                android:layout_weight="0.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register as a partner"
+                />
+
+        </LinearLayout>
+        <!--//about-->
+        <LinearLayout
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_weight="1.8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check"/>
+            <TextView
+                android:layout_weight="0.2"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Share App"
+                />
+
+        </LinearLayout>
+        <!--//register-->
+        <LinearLayout
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_weight="1.8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check"/>
+            <TextView
+                android:layout_weight="0.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

@@ -21,6 +21,12 @@ public class MyBookingsFragment extends Fragment {
     }
 
 
+    public static MyBookingsFragment newInstance() {
+        MyBookingsFragment fragment = new MyBookingsFragment();
+        return fragment;
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

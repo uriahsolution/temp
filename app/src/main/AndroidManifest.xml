@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-
     <!--
     Variant: debugAndroidTest
     Config: debug
@@ -56,12 +55,12 @@
         <activity android:name=".ui.login.LoginActivity">
 
         </activity>
-        <activity android:name=".ui.login.SplashActivity"
+        <activity
+            android:name=".ui.login.SplashActivity"
             android:theme="@style/Fullscreen">
 
 
         </activity>
-
         <activity android:name=".ui.home.HomeActivity">
 
             <intent-filter>
@@ -71,5 +70,7 @@
             </intent-filter>
 
         </activity>
+
     </application>
+
 </manifest>
