@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:textColor="@color/colorWhite"
             android:layout_gravity="right"
             />
 
@@ -26,10 +27,13 @@
         android:id="@+id/ll_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="vertical">
 
         <!--//Register-->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
         <LinearLayout
             android:weightSum="2"
             android:gravity="center"
@@ -39,9 +43,10 @@
 
             <ImageView
                 android:layout_weight="1.8"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_check"/>
+                app:srcCompat="@drawable/ic_check"/>
             <TextView
                 android:layout_weight="0.2"
                 android:layout_width="match_parent"
@@ -50,7 +55,12 @@
                 />
 
         </LinearLayout>
+        </android.support.v7.widget.CardView>
         <!--//about-->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
         <LinearLayout
             android:weightSum="2"
             android:gravity="center"
@@ -60,9 +70,10 @@
 
             <ImageView
                 android:layout_weight="1.8"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_check"/>
+                app:srcCompat="@drawable/ic_check"/>
             <TextView
                 android:layout_weight="0.2"
 
@@ -73,7 +84,12 @@
                 />
 
         </LinearLayout>
+        </android.support.v7.widget.CardView>
         <!--//register-->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
         <LinearLayout
             android:weightSum="2"
             android:gravity="center"
@@ -83,9 +99,10 @@
 
             <ImageView
                 android:layout_weight="1.8"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_check"/>
+                app:srcCompat="@drawable/ic_check"/>
             <TextView
                 android:layout_weight="0.2"
                 android:layout_width="match_parent"
@@ -94,6 +111,7 @@
                 />
 
         </LinearLayout>
+        </android.support.v7.widget.CardView>
 
 
 

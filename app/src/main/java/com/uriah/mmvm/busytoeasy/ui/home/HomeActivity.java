@@ -54,23 +54,23 @@ public class HomeActivity extends AppCompatActivity implements HasSupportFragmen
                 case R.id.navigation_home:
                      fragment = fragmentManager.findFragmentByTag(TAG_FRAGMENT_ONE);
                     if (fragment == null) {
-                        Timber.d("in first fragment retained");
+
                         fragment = HomeFragment.newInstance();
                     }
                     replaceFragment(fragment, TAG_FRAGMENT_ONE);
                     break;
                 case R.id.navigation_dashboard:
-                    /*fragment = fragmentManager.findFragmentByTag(TAG_FRAGMENT_TWO);
+                    fragment = fragmentManager.findFragmentByTag(TAG_FRAGMENT_TWO);
                     if (fragment == null) {
-                        Timber.d("in second fragment retained");
+
                         fragment = MyBookingsFragmentLogin.newInstance();
-                    }*/
+                    }
                     replaceFragment(fragment, TAG_FRAGMENT_TWO);
                     break;
                  case R.id.navigation_notifications:
                      fragment = fragmentManager.findFragmentByTag(TAG_FRAGMENT_THREE);
                      if (fragment == null) {
-                         Timber.d("in third fragment retained");
+
                          fragment = ProfileFragment.newInstance();
                      }
                      replaceFragment(fragment, TAG_FRAGMENT_THREE);
@@ -99,11 +99,11 @@ public class HomeActivity extends AppCompatActivity implements HasSupportFragmen
 
         Fragment fragment = fragmentManager.findFragmentByTag(TAG_FRAGMENT_ONE);
         if (fragment == null) {
-            Timber.d("fragment1 inflated retained");
+
             fragment = HomeFragment.newInstance();
         }
         replaceFragment(fragment, TAG_FRAGMENT_ONE);
-        Timber.d("oncreate fragment1 inflated");
+
 
     }
 

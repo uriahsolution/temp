@@ -30,13 +30,10 @@ public class MyBookingsFragmentLogin extends Fragment {
 
     private MyBookingsFragmentLoginViewModel mViewModel;
 
-    @BindView(R.id.viewpager_fragment)
+    @BindView(R.id.viewpager_)
     ViewPager viewPager;
-    @BindView(R.id.tabs)
+    @BindView(R.id.sliding_tabs)
     TabLayout tabs;
-
-
-
 
     public static MyBookingsFragmentLogin newInstance() {
         return new MyBookingsFragmentLogin();
@@ -47,14 +44,10 @@ public class MyBookingsFragmentLogin extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.my_bookings_fragment_login_fragment,container, false);
-
         ButterKnife.bind(this,view);
-
-
         viewPager.setCurrentItem(2);
         // Setting ViewPager for each Tabs
         setupViewPager(viewPager);
-
         // Set Tabs inside Toolbar
         tabs.setupWithViewPager(viewPager);
         return view;
@@ -64,8 +57,8 @@ public class MyBookingsFragmentLogin extends Fragment {
     public void onResume() {
         super.onResume();
         Timber.d("on resume ");
-        setupViewPager(viewPager);
-        tabs.setupWithViewPager(viewPager);
+
+
     }
 
     // Add Fragments to Tabs

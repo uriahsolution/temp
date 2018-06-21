@@ -8,9 +8,11 @@
         <item name="colorAccent">@color/primaryTextColor</item>
 
 
+
        <!--//Button-->
         <item name="colorButtonNormal">@color/primaryDarkColor</item>
         <item name="colorControlHighlight">@color/primaryLightColor</item>
+
     </style>
 
     <style name="AppLoginTheme" parent="Theme.AccountKit">
