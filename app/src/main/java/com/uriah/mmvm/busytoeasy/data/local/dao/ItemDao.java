@@ -20,5 +20,4 @@ public interface ItemDao {
     @Query("SELECT * FROM Item WHERE lastRefresh > :lastRefreshMax LIMIT 1")
     Item hasUser(Date lastRefreshMax);
 
-
 }

@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import com.uriah.mmvm.busytoeasy.R;
 
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 
 /**
@@ -20,17 +22,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
 
 
-    private Context ctx;
-    public HistoryAdapter(Context ctx){
-
-        this.ctx=ctx;
-
-    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 
     {
-        View v = LayoutInflater.from(ctx)
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.row_history_item, parent, false);
         return new HistoryAdapter.ViewHolder(v);
     }
@@ -61,5 +57,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     }
 
 }
+
 
 

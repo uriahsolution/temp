@@ -40,7 +40,7 @@ public class OngoingFragment extends Fragment {
         Timber.d("onCreate view ");
 
         ButterKnife.bind(this,view);
-        ongoingAdapter=new OngoingAdapter(getActivity());
+        ongoingAdapter=new OngoingAdapter();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rv_ongoing.setLayoutManager(mLayoutManager);
 
@@ -49,7 +49,6 @@ public class OngoingFragment extends Fragment {
         // SwipeRefreshLayout
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_container);
         mSwipeRefreshLayout.setColorSchemeResources(
-
                 R.color.colorPrimary,
                 android.R.color.holo_green_dark,
                 android.R.color.holo_orange_dark,

@@ -21,19 +21,12 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.ViewHold
 
 
 
-    private Context ctx;
-    public OngoingAdapter(Context ctx){
 
-        this.ctx=ctx;
-
-
-
-    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 
     {
-        View v = LayoutInflater.from(ctx)
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.row_ongoing_item, parent, false);
         return new OngoingAdapter.ViewHolder(v);
     }

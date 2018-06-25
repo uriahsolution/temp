@@ -38,7 +38,7 @@ public class HistoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.ongoing_fragment,container, false);
 
         ButterKnife.bind(this,view);
-        ongoingAdapter=new HistoryAdapter(getActivity());
+        ongoingAdapter=new HistoryAdapter();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rv_history.setLayoutManager(mLayoutManager);
         rv_history.setAdapter(ongoingAdapter);

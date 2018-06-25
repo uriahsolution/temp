@@ -20,10 +20,10 @@ public class LoginViewModel extends ViewModel {
 
     @Inject
     public LoginViewModel(ItemRepository itemRepository) {
+
         this.itemRepository = itemRepository;
 
     }
-    // ----
 
     public void init() {
         if (this.itemLiveData != null) {
