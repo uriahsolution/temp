@@ -6,10 +6,11 @@ import android.arch.persistence.room.Room;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.uriah.mmvm.busytoeasy.data.ExampleRepository;
+import com.uriah.mmvm.busytoeasy.data.local.dao.ExampleDao;
 import com.uriah.mmvm.busytoeasy.data.remote.ApiInterface;
-import com.uriah.mmvm.busytoeasy.data.ItemRepository;
 import com.uriah.mmvm.busytoeasy.data.local.MyDatabase;
-import com.uriah.mmvm.busytoeasy.data.local.dao.ItemDao;
+
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -42,7 +43,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    ItemDao provideItemDao(MyDatabase database) { return database.itemDao(); }
+    ExampleDao provideExampleDao(MyDatabase database) { return database.exampleDao(); }
 
     // --- REPOSITORY INJECTION ---
 
@@ -54,13 +55,13 @@ public class AppModule {
 
     @Provides
     @Singleton
-    ItemRepository provideUserRepository(ApiInterface webservice, ItemDao userDao, Executor executor) {
-        return new ItemRepository(webservice, userDao, executor);
+    ExampleRepository provideUserRepository(ApiInterface webservice, ExampleDao exampleDao, Executor executor) {
+        return new ExampleRepository(webservice, exampleDao, executor);
     }
 
     // --- NETWORK INJECTION ---
 
-    private static String BASE_URL = "https://www.iasshiksha.com/api/";
+    private static String BASE_URL = "https://reqres.in/api/";
 
     @Provides
     Gson provideGson() { return new GsonBuilder().create(); }

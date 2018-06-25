@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.uriah.mmvm.busytoeasy.di.key.ViewModelKey;
 import com.uriah.mmvm.busytoeasy.ui.demo.MainViewModel;
+import com.uriah.mmvm.busytoeasy.ui.home.OngoingViewModel;
 import com.uriah.mmvm.busytoeasy.ui.home.ProfileFragment;
 import com.uriah.mmvm.busytoeasy.ui.home.ProfileViewModel;
 import com.uriah.mmvm.busytoeasy.ui.login.LoginViewModel;
@@ -36,6 +37,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel.class)
     abstract ViewModel bindProfileViewModel(ProfileViewModel profileViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(OngoingViewModel.class)
+    abstract ViewModel bindOngoingViewModel(OngoingViewModel ongoingViewModel);
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(FactoryViewModel factory);

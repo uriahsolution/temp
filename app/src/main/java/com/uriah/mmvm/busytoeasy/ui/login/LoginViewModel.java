@@ -2,8 +2,12 @@ package com.uriah.mmvm.busytoeasy.ui.login;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
-import com.uriah.mmvm.busytoeasy.data.ItemRepository;
-import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
+
+import com.uriah.mmvm.busytoeasy.data.ExampleRepository;
+
+import com.uriah.mmvm.busytoeasy.data.local.entity.Datum;
+
+
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -11,33 +15,23 @@ import io.reactivex.disposables.CompositeDisposable;
 public class LoginViewModel extends ViewModel {
 
 
-    private LiveData<Item> itemLiveData;
-    private ItemRepository itemRepository;
-    protected CompositeDisposable compositeDisposable;
-
-    LoginFragment view;
-
+    private LiveData<Datum> itemLiveData;
+    private ExampleRepository exampleRepository;
 
     @Inject
-    public LoginViewModel(ItemRepository itemRepository) {
-
-        this.itemRepository = itemRepository;
-
+    public LoginViewModel(ExampleRepository itemRepository) {
+        this.exampleRepository = itemRepository;
     }
+    // ----
 
     public void init() {
         if (this.itemLiveData != null) {
             return;
         }
-        itemLiveData = itemRepository.getItem();
+        itemLiveData = exampleRepository.getItem();
     }
 
-    public LiveData<Item> getUser() {
+    public LiveData<Datum> getUser() {
         return this.itemLiveData;
-    }
-
-    public void checkNumber() {
-
-
     }
 }

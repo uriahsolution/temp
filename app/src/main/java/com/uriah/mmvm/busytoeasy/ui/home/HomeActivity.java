@@ -36,7 +36,9 @@ public class HomeActivity extends AppCompatActivity implements HasSupportFragmen
     private Fragment currentFragment;
 
 
-    /*This line will programmatically perform click on nav_button_two in bottomNavigationView.. then all event will handle by bottomNavigationView .. Then it will highlight the stream icon.
+    /*This line will programmatically perform click on nav_button_two in bottomNavigationView..
+
+     then all event will handle by bottomNavigationView .. Then it will highlight the stream icon.
     View view = bottomNavigationView.findViewById(R.id.nav_button_two);
     view.performClick();*/
 

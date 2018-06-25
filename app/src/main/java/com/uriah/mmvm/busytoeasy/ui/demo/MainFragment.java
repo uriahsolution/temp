@@ -11,7 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.uriah.mmvm.busytoeasy.R;
-import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Datum;
+
 import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,8 +67,12 @@ public class MainFragment extends Fragment {
     // UPDATE UI
     // -----------------
 
-    private void updateUI(@Nullable Item item){
-        if (item != null){this.textView.setText(item.getTitle());}
+    private void updateUI(@Nullable Datum item){
+        if (item != null){
+
+            /*this.textView.setText(item.getTitle());*/
+
+        }
     }
 
 

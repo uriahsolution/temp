@@ -3,34 +3,31 @@ package com.uriah.mmvm.busytoeasy.ui.home;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.uriah.mmvm.busytoeasy.data.ItemRepository;
-import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
+import com.uriah.mmvm.busytoeasy.data.ExampleRepository;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Datum;
+
 
 import javax.inject.Inject;
 
 public class ProfileViewModel extends ViewModel {
 
-    private LiveData<Item> itemLiveData;
-    private ItemRepository itemRepository;
-    ProfileFragment profileFragment;
+    private LiveData<Datum> itemLiveData;
+    private ExampleRepository exampleRepository;
 
     @Inject
-    public ProfileViewModel(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
-
+    public ProfileViewModel(ExampleRepository itemRepository) {
+        this.exampleRepository = itemRepository;
     }
-
-
     // ----
 
     public void init() {
         if (this.itemLiveData != null) {
             return;
         }
-        itemLiveData = itemRepository.getItem();
+        itemLiveData = exampleRepository.getItem();
     }
 
-    public LiveData<Item> getUser() {
+    public LiveData<Datum> getUser() {
         return this.itemLiveData;
     }
 }

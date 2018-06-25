@@ -2,18 +2,20 @@ package com.uriah.mmvm.busytoeasy.ui.demo;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
-import com.uriah.mmvm.busytoeasy.data.ItemRepository;
-import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
+
+import com.uriah.mmvm.busytoeasy.data.ExampleRepository;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Datum;
+
 import javax.inject.Inject;
 
 public class MainViewModel extends ViewModel {
 
-    private LiveData<Item> itemLiveData;
-    private ItemRepository itemRepository;
+    private LiveData<Datum> itemLiveData;
+    private ExampleRepository exampleRepository;
 
     @Inject
-    public MainViewModel(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
+    public MainViewModel(ExampleRepository itemRepository) {
+        this.exampleRepository = itemRepository;
     }
     // ----
 
@@ -21,10 +23,10 @@ public class MainViewModel extends ViewModel {
         if (this.itemLiveData != null) {
             return;
         }
-        itemLiveData = itemRepository.getItem();
+        itemLiveData = exampleRepository.getItem();
     }
 
-    public LiveData<Item> getUser() {
+    public LiveData<Datum> getUser() {
         return this.itemLiveData;
     }
 

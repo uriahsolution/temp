@@ -5,10 +5,11 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
 import com.uriah.mmvm.busytoeasy.data.local.convertor.DateConverter;
-import com.uriah.mmvm.busytoeasy.data.local.dao.ItemDao;
-import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
+import com.uriah.mmvm.busytoeasy.data.local.dao.ExampleDao;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Datum;
 
-@Database(entities = {Item.class}, version = 1)
+
+@Database(entities = {Datum.class}, version = 1)
 @TypeConverters(DateConverter.class)
 public abstract class MyDatabase extends RoomDatabase {
 
@@ -16,6 +17,6 @@ public abstract class MyDatabase extends RoomDatabase {
     private static volatile MyDatabase INSTANCE;
 
     // --- DAO ---
-    public abstract ItemDao itemDao();
+    public abstract ExampleDao exampleDao();
 }
 

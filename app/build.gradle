@@ -115,6 +115,9 @@ dependencies {
     //fonts
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 
+    //Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.2.0'
+
     //Slider
 
     implementation 'com.squareup.picasso:picasso:2.3.2'

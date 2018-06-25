@@ -17,7 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.uriah.mmvm.busytoeasy.R;
-import com.uriah.mmvm.busytoeasy.data.local.entity.Item;
+import com.uriah.mmvm.busytoeasy.data.local.entity.Datum;
+
 import com.uriah.mmvm.busytoeasy.ui.login.bus.Events;
 import com.uriah.mmvm.busytoeasy.ui.login.bus.GlobalBus;
 
@@ -55,7 +56,7 @@ public class LoginFragment extends Fragment {
 
         btn_login.setOnClickListener(v -> {
 
-            mViewModel.checkNumber();
+          //  mViewModel.checkNumber();
 
             Events.FragmentActivityMessage fragmentActivityMessageEvent =
                     new Events.FragmentActivityMessage(
@@ -119,7 +120,7 @@ public class LoginFragment extends Fragment {
 
     }
 
-    private void updateUI(@Nullable Item item){
+    private void updateUI(@Nullable Datum item){
         if (item != null){
 
             }
